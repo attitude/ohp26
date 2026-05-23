@@ -1,0 +1,361 @@
+{
+  "title": "Open House Praha 2026 — Modernist & Brutalist Picks",
+  "festivalUrl": "https://www.openhousepraha.cz/festival-2026/",
+  "taste": "Functionalism, Bauhaus, brutalism, mid-century modernism. Mies / Corbusier / Wright / Breuer / Eames / Rams.",
+  "tagTaxonomy": {
+    "style": ["functionalism", "brutalism", "late-modernism", "neo-brutalism", "rondo-cubism", "early-modernism", "industrial", "contemporary"],
+    "type": ["palace", "villa", "cultural", "civic", "educational", "sports", "infrastructure", "hotel", "cinema", "theatre", "gallery"],
+    "era": ["1900s", "1920s", "1930s", "1970s", "1980s", "2020s"],
+    "tier": ["tier-1", "tier-2", "tier-3"],
+    "feature": ["concrete", "views", "interior-key", "rare-access", "adaptive-reuse"],
+    "district": ["holesovice", "old-town", "new-town", "karlin", "letna", "liben", "smichov", "strasnice", "vysehrad", "chodov", "jinonice", "strahov", "michle", "vysocany", "branik"]
+  },
+  "ranked": [
+    {
+      "rank": 1,
+      "name": "Veletržní palác – Národní galerie Praha",
+      "key": 78,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=78",
+      "why": "The single most important functionalist building in the country (1928, Tyl + Fuchs). When Le Corbusier visited in 1928 he allegedly said \"I was astonished. I saw architecture, the architecture I've been thinking about.\" Basically Prague's manifesto answer to everything on your list.",
+      "notToMiss": "The grand seven-story atrium with its glass-block floors. The original elevators and brass details. Inside: Mucha's Slav Epic and the Czech modern art collection (Kupka, Filla, Toyen).",
+      "tags": ["functionalism", "tier-1", "1920s", "cultural", "gallery", "holesovice", "interior-key"]
+    },
+    {
+      "rank": 2,
+      "name": "Kongresové centrum Praha",
+      "key": 38,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=38",
+      "why": "The Palace of Culture (1981). Late-socialist brutalism at its most monumental — bronze, travertine, raw concrete, endless geometric repetition. The kind of naked-concrete wall you said you love, scaled up to a city block.",
+      "notToMiss": "The main 2,800-seat hall, the foyer's marble + bronze + glass cosmos, and the terrace view back across Vyšehrad and the Nusle valley.",
+      "tags": ["brutalism", "late-modernism", "tier-1", "1980s", "cultural", "concrete", "views", "vysehrad"]
+    },
+    {
+      "rank": 3,
+      "name": "Národní divadlo – provozní budova (Nová scéna)",
+      "key": 443,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=443",
+      "why": "Karel Prager's 1983 brutalist insertion next to the gold-roofed National Theatre. The dialogue between cast-concrete grid and the historic neo-renaissance is exactly the old/new tension you don't get to see often.",
+      "notToMiss": "The glass-brick façade of the Nová scéna (looks completely different lit from inside at dusk), Prager's exposed structural concrete in the back-of-house spaces, the rooftop.",
+      "tags": ["brutalism", "late-modernism", "tier-1", "1980s", "cultural", "theatre", "concrete", "rare-access", "new-town"]
+    },
+    {
+      "rank": 4,
+      "name": "Hotel Fairmont Golden Prague (ex-Intercontinental)",
+      "key": 480,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=480",
+      "why": "Karel Filsak's 1974 Intercontinental — Prague's most famous brutalist hotel, just reopened after the Fairmont conversion. Bronze, travertine, concrete relief panels. The whole 1970s government-luxury brutalism mood.",
+      "notToMiss": "Whatever original Filsak detailing survived the renovation — the lobby relief work, the bar levels, the riverside terraces. Open House is the rare moment you can see it without booking a room.",
+      "tags": ["brutalism", "late-modernism", "tier-1", "1970s", "hotel", "concrete", "rare-access", "old-town"]
+    },
+    {
+      "rank": 5,
+      "name": "Palác Škodových závodů",
+      "key": 388,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=388",
+      "why": "Pavel Janák, 1926. Janák is the architect Czech modernism revolves around, and this is one of his cleanest functionalist works. Now Magistrát hl. m. Prahy.",
+      "notToMiss": "The grand staircase, the original elevator cores, the period office interiors that survived the conversion to city hall.",
+      "tags": ["functionalism", "tier-1", "1920s", "civic", "palace", "rare-access", "new-town"]
+    },
+    {
+      "rank": 6,
+      "name": "Trmalova vila",
+      "key": 76,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=76",
+      "why": "Your Wright pick. Jan Kotěra's 1903 villa — the father of Czech modern architecture absorbing exactly the Wright / Prairie school influences you fell for in Fallingwater. Built-in furniture, horizontal masses, integration with landscape.",
+      "notToMiss": "The original Kotěra-designed built-in furniture and lighting fixtures still in situ. This is essentially a Czech Robie House, in miniature.",
+      "tags": ["early-modernism", "tier-1", "1900s", "villa", "interior-key", "strasnice"]
+    },
+    {
+      "rank": 7,
+      "name": "Národní archiv a Státní oblastní archiv v Praze",
+      "key": 385,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=385",
+      "why": "The Chodovec archive complex — late socialist brutalism, finished 1990s but designed under normalization. Pure modular concrete, fortress-like volumes, the function-equals-form ethos applied to storing the nation's paper.",
+      "notToMiss": "The storage stacks tour (rarely open), the central reading room, the exterior modular concrete geometry from the access road.",
+      "tags": ["brutalism", "late-modernism", "tier-1", "civic", "concrete", "rare-access", "chodov"]
+    },
+    {
+      "rank": 8,
+      "name": "Budova podniku zahraničního obchodu Strojimport",
+      "key": 482,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=482",
+      "why": "1970s socialist-modernist headquarters of the state machinery export company. The kind of late-modernist corporate building Western Europe largely lost — Prague kept theirs.",
+      "notToMiss": "Original lobby interior, conference rooms, façade detailing. Period furniture and signage if it survived.",
+      "tags": ["late-modernism", "brutalism", "tier-1", "1970s", "palace", "rare-access"]
+    },
+    {
+      "rank": 9,
+      "name": "Areál Jinonice – Fakulta sociálních věd UK",
+      "key": 373,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=373",
+      "why": "A late-socialist university campus (originally a Communist Party training school), now Charles University's social-science faculty. Monumental concrete pavilions on an axial plan — utopian-brutalist campus planning.",
+      "notToMiss": "The axial spine between buildings, the lecture hall interiors, the rough concrete fenestration patterns.",
+      "tags": ["late-modernism", "brutalism", "tier-1", "1980s", "educational", "concrete", "jinonice"]
+    },
+    {
+      "rank": 10,
+      "name": "Ministerstvo dopravy ČR",
+      "key": 368,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=368",
+      "why": "The former Czechoslovak Railways HQ on the embankment — a major interwar functionalist palace, normally closed because it's a working ministry.",
+      "notToMiss": "The cavernous central hall, the period ministerial offices, the riverside façade rhythm.",
+      "tags": ["functionalism", "tier-1", "1930s", "civic", "palace", "rare-access", "new-town"]
+    },
+    {
+      "rank": 11,
+      "name": "Palác Dunaj",
+      "key": 62,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=62",
+      "why": "Adolf Foehr, 1929. Pure Národní-třída functionalism — a clean corner block with ribbon windows and the kind of restrained street presence Mies would have approved of.",
+      "notToMiss": "The corner, the original passageway through the block, the entrance lobby.",
+      "tags": ["functionalism", "tier-2", "1920s", "palace", "new-town"]
+    },
+    {
+      "rank": 12,
+      "name": "Palác Atlas – kino",
+      "key": 445,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=445",
+      "why": "Functionalist palace with one of the era's iconic cinema interiors. Cinemas are where Czech functionalism lets itself become theatrical — curves, indirect lighting, period typography.",
+      "notToMiss": "The cinema hall itself if accessible — even the foyer is worth it.",
+      "tags": ["functionalism", "tier-2", "1930s", "cultural", "cinema", "interior-key", "karlin"]
+    },
+    {
+      "rank": 13,
+      "name": "Klubový dům Autoklubu České republiky",
+      "key": 238,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=238",
+      "why": "1920s clubhouse of the Czech Auto Club — transitional functionalism with the era's love of cars baked into the brief. Members-only normally.",
+      "notToMiss": "The clubrooms, the bar, period petrol-head ephemera that's sometimes on display.",
+      "tags": ["functionalism", "tier-2", "1920s", "cultural", "rare-access", "new-town"]
+    },
+    {
+      "rank": 14,
+      "name": "Hlavův ústav",
+      "key": 412,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=412",
+      "why": "Alois Špalek, 1921. Early functionalist / late modernist Institute of Pathology — the moment Czech architecture stops being decorated and starts being geometric.",
+      "notToMiss": "The lecture amphitheater, the corridor proportions, the staircase.",
+      "tags": ["early-modernism", "tier-2", "1920s", "educational", "new-town"]
+    },
+    {
+      "rank": 15,
+      "name": "Filosofický ústav, Sociologický ústav a Ústav dějin umění AV ČR",
+      "key": 28,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=28",
+      "why": "Academy of Sciences functionalist building by Bohumír Kozák. Restrained, scholarly, almost Bauhaus-quiet.",
+      "notToMiss": "The reading rooms, the library stacks, the inner courtyard.",
+      "tags": ["functionalism", "tier-2", "educational", "old-town"]
+    },
+    {
+      "rank": 16,
+      "name": "Palác Skaut – Divadlo Minor",
+      "key": 471,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=471",
+      "why": "1930s functionalist palace built for the Scouts, now home to the Minor children's theatre. Crisp interwar volumes on Senovážné náměstí.",
+      "notToMiss": "The theatre hall interior, the original staircase, the rooftop terrace if open.",
+      "tags": ["functionalism", "tier-2", "1930s", "cultural", "theatre", "new-town"]
+    },
+    {
+      "rank": 17,
+      "name": "Palác Adria",
+      "key": 249,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=249",
+      "why": "Pavel Janák + Josef Zasche, 1922–25. Not pure functionalism — this is Rondo-cubism, the brief Czech \"national style\" between cubism and functionalism. More decorative than your usual taste, but so specifically Czech avant-garde that an architecture lover shouldn't skip it.",
+      "notToMiss": "The internal passageway, the Adria theatre, the rooftop ceramic ornament.",
+      "tags": ["rondo-cubism", "tier-2", "1920s", "palace", "cultural", "new-town"]
+    },
+    {
+      "rank": 18,
+      "name": "Palác Poštovního šekového úřadu",
+      "key": 483,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=483",
+      "why": "The 1929 Postal Cheque Office palace — one of the Czech functionalist set-pieces, built when the new republic was inventing modern bureaucracy and gave it a modern face.",
+      "notToMiss": "The grand banking hall — vast, top-lit, period clocks and counters.",
+      "tags": ["functionalism", "tier-2", "1920s", "palace", "civic", "interior-key"]
+    },
+    {
+      "rank": 19,
+      "name": "Sokolovna T. J. Sokol Libeň",
+      "key": 254,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=254",
+      "why": "Functionalist Sokol gymnasium — the Sokol movement built dozens of these across Czech towns in the 1920s–30s as muscular, healthy-body modernism.",
+      "notToMiss": "The main gym hall — usually a single big functionalist volume with skylights.",
+      "tags": ["functionalism", "tier-2", "sports", "liben"]
+    },
+    {
+      "rank": 20,
+      "name": "Ústřední ředitelství Československé tabákové režie – Městský soud v Praze",
+      "key": 462,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=462",
+      "why": "Late-1920s functionalist HQ of the state tobacco monopoly, now the Prague Municipal Court. Almost never publicly accessible.",
+      "notToMiss": "The central courtroom, the original director's office levels, the staircase.",
+      "tags": ["functionalism", "tier-2", "1920s", "civic", "palace", "rare-access"]
+    },
+    {
+      "rank": 21,
+      "name": "Palác Archa",
+      "key": 213,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=213",
+      "why": "Functionalist commercial palace on Na Poříčí — the area that has the densest concentration of interwar functionalism in Prague.",
+      "notToMiss": "Façade detailing, lobby, the rooftop view across Poříčí's other functionalist palaces.",
+      "tags": ["functionalism", "tier-2", "1930s", "palace", "cultural", "views", "new-town"]
+    },
+    {
+      "rank": 22,
+      "name": "Palác Metro",
+      "key": 92,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=92",
+      "why": "Functionalist palace on Národní třída. Pair with key=101 (Divadlo Image) — once you're at one, do both, they're the same building.",
+      "notToMiss": "Façade rhythm, the passage through the block.",
+      "tags": ["functionalism", "tier-2", "1930s", "palace", "new-town"]
+    },
+    {
+      "rank": 23,
+      "name": "Palác Metro – Divadlo Image",
+      "key": 101,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=101",
+      "why": "The theatre half of Palác Metro — black-light theatre inside a functionalist palace, an unusual combination.",
+      "notToMiss": "The theatre hall interior.",
+      "tags": ["functionalism", "tier-2", "1930s", "cultural", "theatre", "new-town"]
+    },
+    {
+      "rank": 24,
+      "name": "Hasičský dům",
+      "key": 118,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=118",
+      "why": "Functionalist Firefighters' House. Functionalism applied to civic infrastructure — exactly the form-follows-function ideology in built form.",
+      "notToMiss": "Original fire-engine bays if preserved, the staff floors above, period signage.",
+      "tags": ["functionalism", "tier-2", "civic"]
+    },
+    {
+      "rank": 25,
+      "name": "Gymnázium Na Zatlance",
+      "key": 465,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=465",
+      "why": "1937 functionalist gymnasium — one of the last pre-war school buildings, by which point Czech architects had absolutely nailed the Bauhaus school typology.",
+      "notToMiss": "The classroom corridor proportions, the aula, the original windows and ironmongery.",
+      "tags": ["functionalism", "tier-2", "1930s", "educational", "smichov"]
+    },
+    {
+      "rank": 26,
+      "name": "Budova Fakulty humanitních studií Univerzity Karlovy",
+      "key": 484,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=484",
+      "why": "Wildcard: this is the 2020 Kuba & Pilař building — contemporary, but explicitly neo-brutalist. Exposed cast-in-place concrete, monastery-like cloister logic. If you love a naked concrete wall, this is the new generation.",
+      "notToMiss": "The central atrium with the concrete coffered ceiling, the cloistered courtyards, the library.",
+      "tags": ["neo-brutalism", "contemporary", "tier-3", "2020s", "educational", "concrete", "liben"]
+    },
+    {
+      "rank": 27,
+      "name": "Velký strahovský stadion",
+      "key": 129,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=129",
+      "why": "The largest stadium in the world by area — mass-gymnastics monumentalism. Less Bauhaus-pure, more interwar-monumental, but the scale is hard to comprehend until you stand in it.",
+      "notToMiss": "Walking the field itself; the underground locker tunnels if accessible.",
+      "tags": ["functionalism", "tier-3", "sports", "strahov"]
+    },
+    {
+      "rank": 28,
+      "name": "Plovoucí loděnice TJ Tatran Praha",
+      "key": 358,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=358",
+      "why": "A floating functionalist boathouse on the Vltava. Niche, charming, totally on-genre for form follows function applied to water sports.",
+      "notToMiss": "The structure from the water level, the changing rooms upstairs, the river view.",
+      "tags": ["functionalism", "tier-3", "sports"]
+    },
+    {
+      "rank": 29,
+      "name": "Vršovická vodárna v Michli",
+      "key": 117,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=117",
+      "why": "Interwar water tower / pumping station — functionalist civil-engineering aesthetic that you basically can't see from inside any other way.",
+      "notToMiss": "The pump hall machinery, the tower ascent.",
+      "tags": ["functionalism", "tier-3", "infrastructure", "industrial", "rare-access", "michle"]
+    },
+    {
+      "rank": 30,
+      "name": "Vodárenská věž Letná",
+      "key": 80,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=80",
+      "why": "Older brick water tower at Letná. Not modernist per se, but the bare-engineering aesthetic and the view fit your appetite. Pair with Strahovský stadion since they're nearby.",
+      "notToMiss": "The view from the top across the Vltava bend toward the Old Town.",
+      "tags": ["tier-3", "infrastructure", "views", "letna"]
+    },
+    {
+      "rank": 31,
+      "name": "Pragovka Art District",
+      "key": 67,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=67",
+      "why": "Adaptive reuse of the Praga car/truck factory — industrial-functionalist sheds and concrete halls now hosting artists. Not architecture-as-design but architecture-as-found-object.",
+      "notToMiss": "The biggest hall, the surviving overhead cranes, whatever exhibitions are up.",
+      "tags": ["industrial", "adaptive-reuse", "tier-3", "cultural", "vysocany"]
+    },
+    {
+      "rank": 32,
+      "name": "Branický pivovar – Dům tanečního umění",
+      "key": 362,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=362",
+      "why": "Late-19th-c. brewery converted to a dance house — industrial brick + steel, similar appeal to Pragovka.",
+      "notToMiss": "The main fermentation hall now used as performance space.",
+      "tags": ["industrial", "adaptive-reuse", "tier-3", "cultural", "branik"]
+    },
+    {
+      "rank": 33,
+      "name": "Velvyslanectví Litevské republiky v ČR",
+      "key": 458,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=458",
+      "why": "Embassies are rare-access. This one (Pod Klikovkou) sits in an interwar functionalist villa — combine architecture-tourism with embassy-tourism.",
+      "notToMiss": "The villa interiors that are normally closed, the period staircase.",
+      "tags": ["functionalism", "tier-3", "villa", "civic", "rare-access", "smichov"]
+    },
+    {
+      "rank": 34,
+      "name": "CAMP – Sdružení projektových ateliérů",
+      "key": 9,
+      "link": "https://www.openhousepraha.cz/budova-2026/?key=9",
+      "why": "Late-socialist building of the city planning institute, now the Centre for Architecture and Metropolitan Planning. The building is fine; the content (models of Prague, current architectural exhibitions) is what makes it worth a visit for someone with your interests.",
+      "notToMiss": "The big city model in the main hall, the current temporary exhibition, the reading room.",
+      "tags": ["late-modernism", "tier-3", "1970s", "cultural", "new-town"]
+    }
+  ],
+  "advice": "If you only get one day: lock in #1 (Veletržní palác) and #2 (Kongresové centrum) — together they cover the two poles of your taste (interwar functionalism + late socialist brutalism). Then fill the day with whichever of #3–#10 are geographically closest.",
+  "cancelled": [
+    {
+      "key": 248,
+      "name": "Všeobecná fakultní nemocnice v Praze (key=248)",
+      "note": "Marked \"budova zrušena\" in the source list — building cancelled, don't plan around it."
+    }
+  ],
+  "skip": {
+    "note": "Stunning buildings but outside your taste cluster (baroque / gothic / neorenaissance / generic-new-office / historic-hospital wings).",
+    "categories": [
+      {
+        "label": "Baroque palaces & gothic monuments",
+        "examples": ["Lichtenštejnský palác", "Lobkovický palác (German embassy)", "Hrzánský palác", "Michnův palác – Tyršův dům", "Anežský klášter", "Klášter minoritů", "Pražský hrad – Starý královský palác", "Kostel sv. Anny – Pražská křižovatka", "Jízdárna Savarin", "Faustův dům"]
+      },
+      {
+        "label": "Historicist / neorenaissance villas and town halls",
+        "examples": ["Vila Lanna", "Zámek Veleslavín", "Libeňský zámek", "Nuselská radnice", "Národní dům v Karlíně", "Národní dům v Košířích", "Grabova vila", "Rezidence primátora", "Hlávkova kolej ČVUT", "Klárův ústav slepců", "Domov Palata", "Hájčí dvůr", "Saukupovský statek"]
+      },
+      {
+        "label": "Generic new-build offices / residential",
+        "examples": ["Brumlovka Delta", "Brumlovka Filadelfie", "ČSOB Kampus NHQ", "Quadrio", "Port7", "Roztyly Plaza", "Palác Karlín (both)", "Palác Allianz NR7", "Rezidenční projekt Fragment / Lihovar / Mint Living", "Hotel Mama Shelter", "Nová Spirála", "Palác Pražské městské pojišťovny"]
+      },
+      {
+        "label": "Historic hospital wings & churches",
+        "examples": ["VFN Faustův dům", "VFN Keramický salonek", "VFN Urologická klinika", "VFN Zemská porodnice"]
+      },
+      {
+        "label": "Industrial / railway (unless you're a train person)",
+        "examples": ["Masarykovo nádraží", "Nádraží Praha-Bubny", "Lokomotivní depo Masarykova nádraží"]
+      },
+      {
+        "label": "Edge cases worth knowing",
+        "examples": [
+          "Dům Diamant (key=255): 1913 cubist (Emil Králíček) — Czech avant-garde precursor. Slot near rank ~20 if cubist-to-functionalist arc interests you.",
+          "Nová libeňská synagoga (key=144): 1846 synagogue, architecturally minor."
+        ]
+      }
+    ]
+  }
+}

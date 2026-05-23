@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Open House Praha 2026 — Modernist &amp; Brutalist Picks</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+:root {
+  color-scheme: light dark;
+  accent-color: CanvasText;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+h1 { font-size: 1.4rem; margin: 0 0 0.5rem; line-height: 1.25; }
+h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+h3 { font-size: 1rem; margin: 0 0 0.4rem; line-height: 1.3; }
+
+p { margin: 0.4rem 0; }
+a { color: inherit; }
+
+header p { font-size: 0.95rem; opacity: 0.85; }
+header em { opacity: 0.7; }
+
+details { margin: 1rem 0; }
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.25rem 0;
+}
+
+fieldset {
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.7rem 0.6rem;
+  border: 1px solid;
+  border-radius: 6px;
+}
+legend {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  padding: 0 0.3rem;
+}
+fieldset label {
+  display: inline-block;
+  margin: 0.15rem 0.6rem 0.15rem 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+fieldset label:has(.all) {
+  font-weight: 600;
+  margin-right: 0.8rem;
+  padding-right: 0.8rem;
+  border-right: 1px solid;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.item {
+  padding: 1rem 0;
+  border-top: 1px solid;
+}
+.item h3 .rank { opacity: 0.55; font-weight: 400; }
+.item h3 a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+.item p { font-size: 0.95rem; }
+.item .lbl {
+  font-weight: 600;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badges { list-style: none; padding: 0; margin: 0.6rem 0 0; }
+.badges li {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.05rem 0.55rem;
+  margin: 0.15rem 0.2rem 0.15rem 0;
+  border: 1px solid;
+  border-radius: 999px;
+  opacity: 0.65;
+}
+
+.skip-list ul { padding-left: 1.2rem; }
+.skip-list li { margin: 0.15rem 0; font-size: 0.9rem; }
+
+footer {
+  margin: 2rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.map-trigger { margin: 1rem 0; }
+.map-trigger button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  background: transparent;
+  color: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#map-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: Canvas;
+}
+#map { width: 100%; height: 100%; }
+#close-map {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1001;
+  width: 2.4rem;
+  height: 2.4rem;
+  font: inherit;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0;
+  border-radius: 50%;
+  background: Canvas;
+  color: inherit;
+  border: 1px solid;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.leaflet-popup-content { font-family: inherit; font-size: 0.85rem; }
+.leaflet-popup-content .rank { opacity: 0.55; font-weight: 400; }
+.leaflet-popup-content h4 { margin: 0 0 0.3rem; font-size: 0.95rem; }
+.leaflet-popup-content .when, .leaflet-popup-content .addr { font-size: 0.8rem; opacity: 0.8; margin: 0.2rem 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Open House Praha 2026 — Modernist &amp; Brutalist Picks</h1>
+  <p>Ranked for: functionalism, Bauhaus, brutalism, mid-century modernism (Mies / Corbusier / Wright / Breuer / Eames / Rams).</p>
+  <p><a href="https://www.openhousepraha.cz/festival-2026/">→ Official festival page</a></p>
+  <p><em>If you only get one day: lock in #1 (Veletržní palác) and #2 (Kongresové centrum) — they cover the two poles of the taste. Fill the day with whichever of #3–#10 are nearby.</em></p>
+</header>
+
+<details open>
+  <summary>Filter</summary>
+  <p style="font-size:0.85rem; opacity:0.7; margin:0.5rem 0;">OR within a group, AND between groups. Uncheck <code>tier-2</code> and <code>tier-3</code>, then uncheck every style except <code>brutalism</code> → only tier-1 brutalist items.</p>
+
+  <form id="filters">
+    <fieldset>
+      <legend>Tier</legend>
+      <label><input type="checkbox" class="all" data-cat="tier" checked> all</label>
+      <label><input type="checkbox" name="tier" value="tier-1" checked> tier 1 — must-see</label>
+      <label><input type="checkbox" name="tier" value="tier-2" checked> tier 2 — strong pick</label>
+      <label><input type="checkbox" name="tier" value="tier-3" checked> tier 3 — if nearby</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Style</legend>
+      <label><input type="checkbox" class="all" data-cat="style" checked> all</label>
+      <label><input type="checkbox" name="style" value="functionalism" checked> functionalism</label>
+      <label><input type="checkbox" name="style" value="brutalism" checked> brutalism</label>
+      <label><input type="checkbox" name="style" value="late-modernism" checked> late-modernism</label>
+      <label><input type="checkbox" name="style" value="neo-brutalism" checked> neo-brutalism</label>
+      <label><input type="checkbox" name="style" value="early-modernism" checked> early-modernism</label>
+      <label><input type="checkbox" name="style" value="rondo-cubism" checked> rondo-cubism</label>
+      <label><input type="checkbox" name="style" value="industrial" checked> industrial</label>
+      <label><input type="checkbox" name="style" value="contemporary" checked> contemporary</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>District</legend>
+      <label><input type="checkbox" class="all" data-cat="district" checked> all</label>
+      <label><input type="checkbox" name="district" value="holesovice" checked> Holešovice</label>
+      <label><input type="checkbox" name="district" value="old-town" checked> Old Town</label>
+      <label><input type="checkbox" name="district" value="new-town" checked> New Town</label>
+      <label><input type="checkbox" name="district" value="karlin" checked> Karlín</label>
+      <label><input type="checkbox" name="district" value="letna" checked> Letná</label>
+      <label><input type="checkbox" name="district" value="liben" checked> Libeň</label>
+      <label><input type="checkbox" name="district" value="smichov" checked> Smíchov</label>
+      <label><input type="checkbox" name="district" value="strasnice" checked> Strašnice</label>
+      <label><input type="checkbox" name="district" value="vysehrad" checked> Vyšehrad / Nusle</label>
+      <label><input type="checkbox" name="district" value="chodov" checked> Chodov</label>
+      <label><input type="checkbox" name="district" value="jinonice" checked> Jinonice</label>
+      <label><input type="checkbox" name="district" value="strahov" checked> Strahov</label>
+      <label><input type="checkbox" name="district" value="michle" checked> Michle</label>
+      <label><input type="checkbox" name="district" value="vysocany" checked> Vysočany</label>
+      <label><input type="checkbox" name="district" value="branik" checked> Braník</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Era</legend>
+      <label><input type="checkbox" class="all" data-cat="era" checked> all</label>
+      <label><input type="checkbox" name="era" value="1900s" checked> 1900s</label>
+      <label><input type="checkbox" name="era" value="1920s" checked> 1920s</label>
+      <label><input type="checkbox" name="era" value="1930s" checked> 1930s</label>
+      <label><input type="checkbox" name="era" value="1970s" checked> 1970s</label>
+      <label><input type="checkbox" name="era" value="1980s" checked> 1980s</label>
+      <label><input type="checkbox" name="era" value="2020s" checked> 2020s</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Type</legend>
+      <label><input type="checkbox" class="all" data-cat="type" checked> all</label>
+      <label><input type="checkbox" name="type" value="palace" checked> palace</label>
+      <label><input type="checkbox" name="type" value="villa" checked> villa</label>
+      <label><input type="checkbox" name="type" value="cultural" checked> cultural</label>
+      <label><input type="checkbox" name="type" value="civic" checked> civic</label>
+      <label><input type="checkbox" name="type" value="educational" checked> educational</label>
+      <label><input type="checkbox" name="type" value="sports" checked> sports</label>
+      <label><input type="checkbox" name="type" value="infrastructure" checked> infrastructure</label>
+      <label><input type="checkbox" name="type" value="hotel" checked> hotel</label>
+      <label><input type="checkbox" name="type" value="cinema" checked> cinema</label>
+      <label><input type="checkbox" name="type" value="theatre" checked> theatre</label>
+      <label><input type="checkbox" name="type" value="gallery" checked> gallery</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Feature</legend>
+      <label><input type="checkbox" class="all" data-cat="feature" checked> all</label>
+      <label><input type="checkbox" name="feature" value="concrete" checked> concrete</label>
+      <label><input type="checkbox" name="feature" value="views" checked> views</label>
+      <label><input type="checkbox" name="feature" value="interior-key" checked> interior-key</label>
+      <label><input type="checkbox" name="feature" value="rare-access" checked> rare-access</label>
+      <label><input type="checkbox" name="feature" value="adaptive-reuse" checked> adaptive-reuse</label>
+    </fieldset>
+
+  </form>
+</details>
+
+<p class="map-trigger"><button type="button" id="open-map">🗺  See on map</button></p>
+
+<div id="map-overlay" hidden>
+  <button type="button" id="close-map" aria-label="Close map">×</button>
+  <div id="map"></div>
+</div>
+
+<h2>34 buildings, ranked</h2>
+<ol class="list">
+
+  <li class="item" data-style="functionalism" data-tier="tier-1" data-era="1920s" data-type="cultural gallery" data-feature="interior-key" data-district="holesovice" data-lat="50.10107" data-lng="14.43278" data-when="so, ne 10–18 hod." data-addr="Dukelských hrdinů 530/47, Praha 7">
+    <h3><span class="rank">1.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=78">Veletržní palác – Národní galerie Praha</a></h3>
+    <p><span class="lbl">Why:</span> The single most important functionalist building in the country (1928, Tyl + Fuchs). When Le Corbusier visited in 1928 he allegedly said “I was astonished. I saw architecture, the architecture I've been thinking about.” Basically Prague's manifesto answer to everything on your list.</p>
+    <p><span class="lbl">Don't miss:</span> The grand seven-story atrium with its glass-block floors. The original elevators and brass details. Inside: Mucha's Slav Epic and the Czech modern art collection (Kupka, Filla, Toyen).</p>
+    <ul class="badges"><li>functionalism</li><li>tier-1</li><li>1920s</li><li>cultural</li><li>gallery</li><li>holesovice</li><li>interior-key</li></ul>
+  </li>
+
+  <li class="item" data-style="brutalism late-modernism" data-tier="tier-1" data-era="1980s" data-type="cultural" data-feature="concrete views" data-district="vysehrad" data-lat="50.0624033" data-lng="14.4277469" data-when="so, ne 10–18 hod." data-addr="5. května 1640/65, Praha 4 (vchod č. 5)">
+    <h3><span class="rank">2.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=38">Kongresové centrum Praha</a></h3>
+    <p><span class="lbl">Why:</span> The Palace of Culture (1981). Late-socialist brutalism at its most monumental — bronze, travertine, raw concrete, endless geometric repetition. The kind of naked-concrete wall you said you love, scaled up to a city block.</p>
+    <p><span class="lbl">Don't miss:</span> The main 2,800-seat hall, the foyer's marble + bronze + glass cosmos, and the terrace view back across Vyšehrad and the Nusle valley.</p>
+    <ul class="badges"><li>brutalism</li><li>late-modernism</li><li>tier-1</li><li>1980s</li><li>cultural</li><li>concrete</li><li>views</li><li>vysehrad</li></ul>
+  </li>
+
+  <li class="item" data-style="brutalism late-modernism" data-tier="tier-1" data-era="1980s" data-type="cultural theatre" data-feature="concrete rare-access" data-district="new-town" data-lat="50.0809225" data-lng="14.4143033" data-when="so, ne 10–18 hod." data-addr="Ostrovní 225/1, Praha 1, vstup z náměstí Václava Havla">
+    <h3><span class="rank">3.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=443">Národní divadlo – provozní budova (Nová scéna)</a></h3>
+    <p><span class="lbl">Why:</span> Karel Prager's 1983 brutalist insertion next to the gold-roofed National Theatre. The dialogue between cast-concrete grid and the historic neo-renaissance is exactly the old/new tension you don't get to see often.</p>
+    <p><span class="lbl">Don't miss:</span> The glass-brick façade of the Nová scéna (looks completely different lit from inside at dusk), Prager's exposed structural concrete in the back-of-house spaces, the rooftop.</p>
+    <ul class="badges"><li>brutalism</li><li>late-modernism</li><li>tier-1</li><li>1980s</li><li>cultural</li><li>theatre</li><li>concrete</li><li>rare-access</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="brutalism late-modernism" data-tier="tier-1" data-era="1970s" data-type="hotel" data-feature="concrete rare-access" data-district="old-town" data-lat="50.0917344" data-lng="14.4182847" data-when="ne 12–17 hod." data-addr="Pařížská 43/30, Praha 1 (vchod z Dvořákova nábřeží přes lávku restaurace Greenhouse)">
+    <h3><span class="rank">4.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=480">Hotel Fairmont Golden Prague (ex-Intercontinental)</a></h3>
+    <p><span class="lbl">Why:</span> Karel Filsak's 1974 Intercontinental — Prague's most famous brutalist hotel, just reopened after the Fairmont conversion. Bronze, travertine, concrete relief panels. The whole 1970s government-luxury brutalism mood.</p>
+    <p><span class="lbl">Don't miss:</span> Whatever original Filsak detailing survived the renovation — the lobby relief work, the bar levels, the riverside terraces. Open House is the rare moment you can see it without booking a room.</p>
+    <ul class="badges"><li>brutalism</li><li>late-modernism</li><li>tier-1</li><li>1970s</li><li>hotel</li><li>concrete</li><li>rare-access</li><li>old-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-1" data-era="1920s" data-type="civic palace" data-feature="rare-access" data-district="new-town" data-lat="50.0819656" data-lng="14.4222497" data-when="so, ne 10–18 hod." data-addr="Jungmannova 35/29, Praha 1">
+    <h3><span class="rank">5.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=388">Palác Škodových závodů</a></h3>
+    <p><span class="lbl">Why:</span> Pavel Janák, 1926. Janák is the architect Czech modernism revolves around, and this is one of his cleanest functionalist works. Now Magistrát hl. m. Prahy.</p>
+    <p><span class="lbl">Don't miss:</span> The grand staircase, the original elevator cores, the period office interiors that survived the conversion to city hall.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-1</li><li>1920s</li><li>civic</li><li>palace</li><li>rare-access</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="early-modernism" data-tier="tier-1" data-era="1900s" data-type="villa" data-feature="interior-key" data-district="strasnice" data-lat="50.0738" data-lng="14.48825" data-when="ne 10–18 hod." data-addr="Vilová 91/11, Praha 10">
+    <h3><span class="rank">6.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=76">Trmalova vila</a></h3>
+    <p><span class="lbl">Why:</span> Your Wright pick. Jan Kotěra's 1903 villa — the father of Czech modern architecture absorbing exactly the Wright / Prairie school influences you fell for in Fallingwater. Built-in furniture, horizontal masses, integration with landscape.</p>
+    <p><span class="lbl">Don't miss:</span> The original Kotěra-designed built-in furniture and lighting fixtures still in situ. This is essentially a Czech Robie House, in miniature.</p>
+    <ul class="badges"><li>early-modernism</li><li>tier-1</li><li>1900s</li><li>villa</li><li>interior-key</li><li>strasnice</li></ul>
+  </li>
+
+  <li class="item" data-style="brutalism late-modernism" data-tier="tier-1" data-type="civic" data-feature="concrete rare-access" data-district="chodov" data-lat="50.0388611" data-lng="14.4932467" data-when="so, ne 10–18 hod." data-addr="Archivní 2257/4, Praha 4">
+    <h3><span class="rank">7.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=385">Národní archiv a Státní oblastní archiv v Praze</a></h3>
+    <p><span class="lbl">Why:</span> The Chodovec archive complex — late socialist brutalism, finished 1990s but designed under normalization. Pure modular concrete, fortress-like volumes, the function-equals-form ethos applied to storing the nation's paper.</p>
+    <p><span class="lbl">Don't miss:</span> The storage stacks tour (rarely open), the central reading room, the exterior modular concrete geometry from the access road.</p>
+    <ul class="badges"><li>brutalism</li><li>late-modernism</li><li>tier-1</li><li>civic</li><li>concrete</li><li>rare-access</li><li>chodov</li></ul>
+  </li>
+
+  <li class="item" data-style="late-modernism brutalism" data-tier="tier-1" data-era="1970s" data-type="palace" data-feature="rare-access" data-lat="50.0781186" data-lng="14.4722658" data-when="ne 10–18 hod." data-addr="Vinohradská 2396/184, Praha 3">
+    <h3><span class="rank">8.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=482">Budova podniku zahraničního obchodu Strojimport</a></h3>
+    <p><span class="lbl">Why:</span> 1970s socialist-modernist headquarters of the state machinery export company. The kind of late-modernist corporate building Western Europe largely lost — Prague kept theirs.</p>
+    <p><span class="lbl">Don't miss:</span> Original lobby interior, conference rooms, façade detailing. Period furniture and signage if it survived.</p>
+    <ul class="badges"><li>late-modernism</li><li>brutalism</li><li>tier-1</li><li>1970s</li><li>palace</li><li>rare-access</li></ul>
+  </li>
+
+  <li class="item" data-style="late-modernism brutalism" data-tier="tier-1" data-era="1980s" data-type="educational" data-feature="concrete" data-district="jinonice" data-lat="50.0541625" data-lng="14.3688178" data-when="so, ne 10–18 hod." data-addr="U Kříže 661/8, Praha 5">
+    <h3><span class="rank">9.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=373">Areál Jinonice – Fakulta sociálních věd UK</a></h3>
+    <p><span class="lbl">Why:</span> A late-socialist university campus (originally a Communist Party training school), now Charles University's social-science faculty. Monumental concrete pavilions on an axial plan — utopian-brutalist campus planning.</p>
+    <p><span class="lbl">Don't miss:</span> The axial spine between buildings, the lecture hall interiors, the rough concrete fenestration patterns.</p>
+    <ul class="badges"><li>late-modernism</li><li>brutalism</li><li>tier-1</li><li>1980s</li><li>educational</li><li>concrete</li><li>jinonice</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-1" data-era="1930s" data-type="civic palace" data-feature="rare-access" data-district="new-town" data-lat="50.0933519" data-lng="14.4343606" data-when="so 10–17 hod. (poslední prohlídka v 17 hod.) POZOR ZMĚNA OTEVÍRACÍ DOBY" data-addr="nábřeží Ludvíka Svobody 1222/12, Praha 1">
+    <h3><span class="rank">10.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=368">Ministerstvo dopravy ČR</a></h3>
+    <p><span class="lbl">Why:</span> The former Czechoslovak Railways HQ on the embankment — a major interwar functionalist palace, normally closed because it's a working ministry.</p>
+    <p><span class="lbl">Don't miss:</span> The cavernous central hall, the period ministerial offices, the riverside façade rhythm.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-1</li><li>1930s</li><li>civic</li><li>palace</li><li>rare-access</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1920s" data-type="palace" data-district="new-town" data-lat="50.0815958" data-lng="14.4168472" data-when="so, ne 10–18 hod." data-addr="Národní 138/10, Praha 1">
+    <h3><span class="rank">11.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=62">Palác Dunaj</a></h3>
+    <p><span class="lbl">Why:</span> Adolf Foehr, 1929. Pure Národní-třída functionalism — a clean corner block with ribbon windows and the kind of restrained street presence Mies would have approved of.</p>
+    <p><span class="lbl">Don't miss:</span> The corner, the original passageway through the block, the entrance lobby.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1920s</li><li>palace</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="cultural cinema" data-feature="interior-key" data-district="karlin" data-lat="50.0915856" data-lng="14.4383706" data-when="so, ne 10–18 hod." data-addr="Ke Štvanici 371/4, Praha 8">
+    <h3><span class="rank">12.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=445">Palác Atlas – kino</a></h3>
+    <p><span class="lbl">Why:</span> Functionalist palace with one of the era's iconic cinema interiors. Cinemas are where Czech functionalism lets itself become theatrical — curves, indirect lighting, period typography.</p>
+    <p><span class="lbl">Don't miss:</span> The cinema hall itself if accessible — even the foyer is worth it.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>cultural</li><li>cinema</li><li>interior-key</li><li>karlin</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1920s" data-type="cultural" data-feature="rare-access" data-district="new-town" data-lat="50.0836450" data-lng="14.4324150" data-when="so, ne 10–18 hod." data-addr="Opletalova 1337/29, Praha 1">
+    <h3><span class="rank">13.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=238">Klubový dům Autoklubu České republiky</a></h3>
+    <p><span class="lbl">Why:</span> 1920s clubhouse of the Czech Auto Club — transitional functionalism with the era's love of cars baked into the brief. Members-only normally.</p>
+    <p><span class="lbl">Don't miss:</span> The clubrooms, the bar, period petrol-head ephemera that's sometimes on display.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1920s</li><li>cultural</li><li>rare-access</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="early-modernism" data-tier="tier-2" data-era="1920s" data-type="educational" data-district="new-town" data-lat="50.0697289" data-lng="14.4254056" data-when="so, ne 10–18 hod." data-addr="Studničkova 2039/2, Praha 2">
+    <h3><span class="rank">14.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=412">Hlavův ústav</a></h3>
+    <p><span class="lbl">Why:</span> Alois Špalek, 1921. Early functionalist / late modernist Institute of Pathology — the moment Czech architecture stops being decorated and starts being geometric.</p>
+    <p><span class="lbl">Don't miss:</span> The lecture amphitheater, the corridor proportions, the staircase.</p>
+    <ul class="badges"><li>early-modernism</li><li>tier-2</li><li>1920s</li><li>educational</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-type="educational" data-district="old-town" data-lat="50.0840764" data-lng="14.4184086" data-when="so 10–18 hod." data-addr="Na Perštýně 352/18, Praha 1">
+    <h3><span class="rank">15.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=28">Filosofický ústav, Sociologický ústav a Ústav dějin umění AV ČR</a></h3>
+    <p><span class="lbl">Why:</span> Academy of Sciences functionalist building by Bohumír Kozák. Restrained, scholarly, almost Bauhaus-quiet.</p>
+    <p><span class="lbl">Don't miss:</span> The reading rooms, the library stacks, the inner courtyard.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>educational</li><li>old-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="cultural theatre" data-district="new-town" data-lat="50.0784997" data-lng="14.4218333" data-when="so 10–18 hod." data-addr="Vodičkova 674/6, Praha 1">
+    <h3><span class="rank">16.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=471">Palác Skaut – Divadlo Minor</a></h3>
+    <p><span class="lbl">Why:</span> 1930s functionalist palace built for the Scouts, now home to the Minor children's theatre. Crisp interwar volumes on Senovážné náměstí.</p>
+    <p><span class="lbl">Don't miss:</span> The theatre hall interior, the original staircase, the rooftop terrace if open.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>cultural</li><li>theatre</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="rondo-cubism" data-tier="tier-2" data-era="1920s" data-type="palace cultural" data-district="new-town" data-lat="50.0824786" data-lng="14.4221297" data-when="so, ne 10–18 hod." data-addr="Jungmannova 36/31, Praha 1">
+    <h3><span class="rank">17.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=249">Palác Adria</a></h3>
+    <p><span class="lbl">Why:</span> Pavel Janák + Josef Zasche, 1922–25. Not pure functionalism — this is Rondo-cubism, the brief Czech “national style” between cubism and functionalism. More decorative than your usual taste, but so specifically Czech avant-garde that an architecture lover shouldn't skip it.</p>
+    <p><span class="lbl">Don't miss:</span> The internal passageway, the Adria theatre, the rooftop ceramic ornament.</p>
+    <ul class="badges"><li>rondo-cubism</li><li>tier-2</li><li>1920s</li><li>palace</li><li>cultural</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1920s" data-type="palace civic" data-feature="interior-key" data-lat="50.0806297" data-lng="14.4266122" data-when="so, ne 10–18 hod." data-addr="Václavské náměstí 796/42, Praha 1 (vstup z ulice Štěpánská)">
+    <h3><span class="rank">18.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=483">Palác Poštovního šekového úřadu</a></h3>
+    <p><span class="lbl">Why:</span> The 1929 Postal Cheque Office palace — one of the Czech functionalist set-pieces, built when the new republic was inventing modern bureaucracy and gave it a modern face.</p>
+    <p><span class="lbl">Don't miss:</span> The grand banking hall — vast, top-lit, period clocks and counters.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1920s</li><li>palace</li><li>civic</li><li>interior-key</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-type="sports" data-district="liben" data-lat="50.1085094" data-lng="14.4717256" data-when="so 10–18 hod." data-addr="Zenklova 2/37, Praha 8">
+    <h3><span class="rank">19.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=254">Sokolovna T. J. Sokol Libeň</a></h3>
+    <p><span class="lbl">Why:</span> Functionalist Sokol gymnasium — the Sokol movement built dozens of these across Czech towns in the 1920s–30s as muscular, healthy-body modernism.</p>
+    <p><span class="lbl">Don't miss:</span> The main gym hall — usually a single big functionalist volume with skylights.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>sports</li><li>liben</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1920s" data-type="civic palace" data-feature="rare-access" data-lat="50.0763011" data-lng="14.4398883" data-when="so, ne 10–18 hod." data-addr="Slezská 2000/9, Praha 2">
+    <h3><span class="rank">20.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=462">Ústřední ředitelství Československé tabákové režie – Městský soud v Praze</a></h3>
+    <p><span class="lbl">Why:</span> Late-1920s functionalist HQ of the state tobacco monopoly, now the Prague Municipal Court. Almost never publicly accessible.</p>
+    <p><span class="lbl">Don't miss:</span> The central courtroom, the original director's office levels, the staircase.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1920s</li><li>civic</li><li>palace</li><li>rare-access</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="palace cultural" data-feature="views" data-district="new-town" data-lat="50.0896731" data-lng="14.4336647" data-when="so, ne 10–18 hod." data-addr="Na Poříčí 24, Praha 1">
+    <h3><span class="rank">21.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=213">Palác Archa</a></h3>
+    <p><span class="lbl">Why:</span> Functionalist commercial palace on Na Poříčí — the area that has the densest concentration of interwar functionalism in Prague.</p>
+    <p><span class="lbl">Don't miss:</span> Façade detailing, lobby, the rooftop view across Poříčí's other functionalist palaces.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>palace</li><li>cultural</li><li>views</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="palace" data-district="new-town" data-lat="50.08233798" data-lng="14.41809679" data-when="so, ne 10–18 hod." data-addr="Národní 961/25, Praha 1 (pasáží)">
+    <h3><span class="rank">22.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=92">Palác Metro</a></h3>
+    <p><span class="lbl">Why:</span> Functionalist palace on Národní třída. Pair with #23 (Divadlo Image) — same building, do both at once.</p>
+    <p><span class="lbl">Don't miss:</span> Façade rhythm, the passage through the block.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>palace</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="cultural theatre" data-district="new-town" data-lat="50.0822342" data-lng="14.4181514" data-when="so 14–18 hod., ne 10–18 hod." data-addr="Národní 961/25, Praha 1">
+    <h3><span class="rank">23.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=101">Palác Metro – Divadlo Image</a></h3>
+    <p><span class="lbl">Why:</span> The theatre half of Palác Metro — black-light theatre inside a functionalist palace, an unusual combination.</p>
+    <p><span class="lbl">Don't miss:</span> The theatre hall interior.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>cultural</li><li>theatre</li><li>new-town</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-type="civic" data-lat="50.0766486" data-lng="14.4386214" data-when="so 10–18 hod." data-addr="Římská 2135/45, Praha 2">
+    <h3><span class="rank">24.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=118">Hasičský dům</a></h3>
+    <p><span class="lbl">Why:</span> Functionalist Firefighters' House. Functionalism applied to civic infrastructure — exactly the form-follows-function ideology in built form.</p>
+    <p><span class="lbl">Don't miss:</span> Original fire-engine bays if preserved, the staff floors above, period signage.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>civic</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-2" data-era="1930s" data-type="educational" data-district="smichov" data-lat="50.0709750" data-lng="14.3993564" data-when="so, ne 10–18 hod." data-addr="Na Zatlance 1330/11, Praha 5">
+    <h3><span class="rank">25.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=465">Gymnázium Na Zatlance</a></h3>
+    <p><span class="lbl">Why:</span> 1937 functionalist gymnasium — one of the last pre-war school buildings, by which point Czech architects had absolutely nailed the Bauhaus school typology.</p>
+    <p><span class="lbl">Don't miss:</span> The classroom corridor proportions, the aula, the original windows and ironmongery.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-2</li><li>1930s</li><li>educational</li><li>smichov</li></ul>
+  </li>
+
+  <li class="item" data-style="neo-brutalism contemporary" data-tier="tier-3" data-era="2020s" data-type="educational" data-feature="concrete" data-district="liben" data-lat="50.1159319" data-lng="14.4421564" data-when="so 10–18 hod." data-addr="Pátkova 2137/5, Praha 8">
+    <h3><span class="rank">26.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=484">Budova Fakulty humanitních studií Univerzity Karlovy</a></h3>
+    <p><span class="lbl">Why:</span> Wildcard: this is the 2020 Kuba &amp; Pilař building — contemporary, but explicitly neo-brutalist. Exposed cast-in-place concrete, monastery-like cloister logic. If you love a naked concrete wall, this is the new generation.</p>
+    <p><span class="lbl">Don't miss:</span> The central atrium with the concrete coffered ceiling, the cloistered courtyards, the library.</p>
+    <ul class="badges"><li>neo-brutalism</li><li>contemporary</li><li>tier-3</li><li>2020s</li><li>educational</li><li>concrete</li><li>liben</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-3" data-type="sports" data-district="strahov" data-lat="50.0805378" data-lng="14.3857467" data-when="so, ne 10–18 hod." data-addr="Zátopkova 100/2, Praha 6">
+    <h3><span class="rank">27.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=129">Velký strahovský stadion</a></h3>
+    <p><span class="lbl">Why:</span> The largest stadium in the world by area — mass-gymnastics monumentalism. Less Bauhaus-pure, more interwar-monumental, but the scale is hard to comprehend until you stand in it.</p>
+    <p><span class="lbl">Don't miss:</span> Walking the field itself; the underground locker tunnels if accessible.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-3</li><li>sports</li><li>strahov</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-3" data-type="sports" data-lat="50.0597897" data-lng="14.4179019" data-when="so, ne 10–18 hod." data-addr="Podolský přístav 5, Praha 4">
+    <h3><span class="rank">28.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=358">Plovoucí loděnice TJ Tatran Praha</a></h3>
+    <p><span class="lbl">Why:</span> A floating functionalist boathouse on the Vltava. Niche, charming, totally on-genre for form follows function applied to water sports.</p>
+    <p><span class="lbl">Don't miss:</span> The structure from the water level, the changing rooms upstairs, the river view.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-3</li><li>sports</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism industrial" data-tier="tier-3" data-type="infrastructure" data-feature="rare-access" data-district="michle" data-lat="50.0491056" data-lng="14.4460619" data-when="so, ne 10–18 hod." data-addr="Hanusova 365/5, Praha 4">
+    <h3><span class="rank">29.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=117">Vršovická vodárna v Michli</a></h3>
+    <p><span class="lbl">Why:</span> Interwar water tower / pumping station — functionalist civil-engineering aesthetic that you basically can't see from inside any other way.</p>
+    <p><span class="lbl">Don't miss:</span> The pump hall machinery, the tower ascent.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-3</li><li>infrastructure</li><li>industrial</li><li>rare-access</li><li>michle</li></ul>
+  </li>
+
+  <li class="item" data-tier="tier-3" data-type="infrastructure" data-feature="views" data-district="letna" data-lat="50.10017" data-lng="14.41987" data-when="so, ne 10–18 hod." data-addr="Na Výšinách 1000/1, Praha 7">
+    <h3><span class="rank">30.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=80">Vodárenská věž Letná</a></h3>
+    <p><span class="lbl">Why:</span> Older brick water tower at Letná. Not modernist per se, but the bare-engineering aesthetic and the view fit your appetite. Pair with Strahovský stadion since they're nearby.</p>
+    <p><span class="lbl">Don't miss:</span> The view from the top across the Vltava bend toward the Old Town.</p>
+    <ul class="badges"><li>tier-3</li><li>infrastructure</li><li>views</li><li>letna</li></ul>
+  </li>
+
+  <li class="item" data-style="industrial" data-tier="tier-3" data-type="cultural" data-feature="adaptive-reuse" data-district="vysocany" data-lat="50.11041" data-lng="14.51106" data-when="so, ne 10–18 hod." data-addr="Kolbenova 923/34a, Praha 9">
+    <h3><span class="rank">31.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=67">Pragovka Art District</a></h3>
+    <p><span class="lbl">Why:</span> Adaptive reuse of the Praga car/truck factory — industrial-functionalist sheds and concrete halls now hosting artists. Not architecture-as-design but architecture-as-found-object.</p>
+    <p><span class="lbl">Don't miss:</span> The biggest hall, the surviving overhead cranes, whatever exhibitions are up.</p>
+    <ul class="badges"><li>industrial</li><li>adaptive-reuse</li><li>tier-3</li><li>cultural</li><li>vysocany</li></ul>
+  </li>
+
+  <li class="item" data-style="industrial" data-tier="tier-3" data-type="cultural" data-feature="adaptive-reuse" data-district="branik" data-lat="50.0292769" data-lng="14.4097986" data-when="so, ne 10–18 hod." data-addr="Údolní 212/1, Praha 4 (budova č. III)">
+    <h3><span class="rank">32.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=362">Branický pivovar – Dům tanečního umění</a></h3>
+    <p><span class="lbl">Why:</span> Late-19th-c. brewery converted to a dance house — industrial brick + steel, similar appeal to Pragovka.</p>
+    <p><span class="lbl">Don't miss:</span> The main fermentation hall now used as performance space.</p>
+    <ul class="badges"><li>industrial</li><li>adaptive-reuse</li><li>tier-3</li><li>cultural</li><li>branik</li></ul>
+  </li>
+
+  <li class="item" data-style="functionalism" data-tier="tier-3" data-type="villa civic" data-feature="rare-access" data-district="smichov" data-lat="50.0712764" data-lng="14.3751392" data-when="so 10–18 hod." data-addr="Pod Klikovkou 1916/2, Praha 5">
+    <h3><span class="rank">33.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=458">Velvyslanectví Litevské republiky v ČR</a></h3>
+    <p><span class="lbl">Why:</span> Embassies are rare-access. This one (Pod Klikovkou) sits in an interwar functionalist villa — combine architecture-tourism with embassy-tourism.</p>
+    <p><span class="lbl">Don't miss:</span> The villa interiors that are normally closed, the period staircase.</p>
+    <ul class="badges"><li>functionalism</li><li>tier-3</li><li>villa</li><li>civic</li><li>rare-access</li><li>smichov</li></ul>
+  </li>
+
+  <li class="item" data-style="late-modernism" data-tier="tier-3" data-era="1970s" data-type="cultural" data-district="new-town" data-lat="50.0730381" data-lng="14.4179861" data-when="so, ne 10–18 hod." data-addr="Vyšehradská 2075/51, Praha 2">
+    <h3><span class="rank">34.</span> <a href="https://www.openhousepraha.cz/budova-2026/?key=9">CAMP – Sdružení projektových ateliérů</a></h3>
+    <p><span class="lbl">Why:</span> Late-socialist building of the city planning institute, now the Centre for Architecture and Metropolitan Planning. The building is fine; the content (models of Prague, current architectural exhibitions) is what makes it worth a visit for someone with your interests.</p>
+    <p><span class="lbl">Don't miss:</span> The big city model in the main hall, the current temporary exhibition, the reading room.</p>
+    <ul class="badges"><li>late-modernism</li><li>tier-3</li><li>1970s</li><li>cultural</li><li>new-town</li></ul>
+  </li>
+
+</ol>
+
+<details class="skip-list">
+  <summary>Cancelled &amp; skip list</summary>
+
+  <h3>Cancelled</h3>
+  <p>Všeobecná fakultní nemocnice v Praze (key=248) is marked “budova zrušena” in the source — don't plan around it.</p>
+
+  <h3>Outside the taste cluster — skip unless you have spare time</h3>
+
+  <p><strong>Baroque palaces &amp; gothic monuments</strong></p>
+  <ul>
+    <li>Lichtenštejnský palác</li>
+    <li>Lobkovický palác (German embassy)</li>
+    <li>Hrzánský palác</li>
+    <li>Michnův palác – Tyršův dům</li>
+    <li>Anežský klášter</li>
+    <li>Klášter minoritů</li>
+    <li>Pražský hrad – Starý královský palác</li>
+    <li>Kostel sv. Anny – Pražská křižovatka</li>
+    <li>Jízdárna Savarin</li>
+    <li>Faustův dům</li>
+  </ul>
+
+  <p><strong>Historicist / neorenaissance villas and town halls</strong></p>
+  <ul>
+    <li>Vila Lanna</li>
+    <li>Zámek Veleslavín</li>
+    <li>Libeňský zámek</li>
+    <li>Nuselská radnice</li>
+    <li>Národní dům v Karlíně</li>
+    <li>Národní dům v Košířích</li>
+    <li>Grabova vila</li>
+    <li>Rezidence primátora</li>
+    <li>Hlávkova kolej ČVUT</li>
+    <li>Klárův ústav slepců</li>
+    <li>Domov Palata</li>
+    <li>Hájčí dvůr</li>
+    <li>Saukupovský statek</li>
+  </ul>
+
+  <p><strong>Generic new-build offices / residential</strong></p>
+  <ul>
+    <li>Brumlovka Delta / Filadelfie</li>
+    <li>ČSOB Kampus NHQ</li>
+    <li>Quadrio</li>
+    <li>Port7</li>
+    <li>Roztyly Plaza (both)</li>
+    <li>Palác Karlín (both)</li>
+    <li>Palác Allianz NR7</li>
+    <li>Rezidenční projekt Fragment / Lihovar / Mint Living</li>
+    <li>Hotel Mama Shelter</li>
+    <li>Nová Spirála</li>
+    <li>Palác Pražské městské pojišťovny</li>
+  </ul>
+
+  <p><strong>Historic hospital wings</strong></p>
+  <ul>
+    <li>VFN Faustův dům / Keramický salonek / Urologická klinika / Zemská porodnice</li>
+  </ul>
+
+  <p><strong>Industrial / railway (unless you're a train person)</strong></p>
+  <ul>
+    <li>Masarykovo nádraží</li>
+    <li>Nádraží Praha-Bubny</li>
+    <li>Lokomotivní depo Masarykova nádraží</li>
+  </ul>
+
+  <p><strong>Edge cases worth knowing</strong></p>
+  <ul>
+    <li>Dům Diamant (key=255) — 1913 cubist (Emil Králíček), Czech avant-garde precursor. Slot near rank ~20 if the cubist-to-functionalist arc interests you.</li>
+    <li>Nová libeňská synagoga (key=144) — 1846 synagogue, architecturally minor.</li>
+  </ul>
+</details>
+
+<footer>
+  Source data: <a href="assets/list.json">assets/list.json</a> · Generated for personal use during Open House Praha 2026.
+</footer>
+
+<script>
+(() => {
+  const items = document.querySelectorAll('.item');
+  const form = document.getElementById('filters');
+  const inputs = [...form.querySelectorAll('input[name]')];
+  const cats = [...new Set(inputs.map(i => i.name))];
+  const byCat = Object.fromEntries(cats.map(c => [c, inputs.filter(i => i.name === c)]));
+  const allByCat = Object.fromEntries(
+    [...form.querySelectorAll('input.all')].map(b => [b.dataset.cat, b])
+  );
+
+  const update = () => {
+    const checked = Object.fromEntries(cats.map(c =>
+      [c, new Set(byCat[c].filter(i => i.checked).map(i => i.value))]
+    ));
+    const noResult = cats.some(c => checked[c].size === 0);
+    for (const item of items) {
+      let hide = noResult;
+      for (const c of cats) {
+        if (hide) break;
+        const tags = (item.dataset[c] || '').split(' ').filter(Boolean);
+        if (tags.length && !tags.some(t => checked[c].has(t))) { hide = true; break; }
+      }
+      item.hidden = hide;
+    }
+  };
+
+  const syncAll = (cat) => {
+    const allBox = allByCat[cat];
+    if (!allBox) return;
+    const n = byCat[cat].filter(i => i.checked).length;
+    allBox.checked = n === byCat[cat].length;
+    allBox.indeterminate = n > 0 && n < byCat[cat].length;
+  };
+
+  form.addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.classList.contains('all')) {
+      // Browser already toggled t.checked and cleared t.indeterminate.
+      // From indeterminate, native click sets checked=true → propagate.
+      byCat[t.dataset.cat].forEach(i => i.checked = t.checked);
+    } else if (t.name) {
+      syncAll(t.name);
+    }
+    update();
+  });
+
+  cats.forEach(syncAll);
+  update();
+
+  // ─── Map view ──────────────────────────────────────────────
+  let map = null, markerLayer = null;
+  const overlay = document.getElementById('map-overlay');
+
+  const refreshMarkers = () => {
+    if (!map) return;
+    markerLayer.clearLayers();
+    let bounds = L.latLngBounds([]);
+    for (const item of items) {
+      if (item.hidden) continue;
+      const lat = parseFloat(item.dataset.lat), lng = parseFloat(item.dataset.lng);
+      if (!lat || !lng) continue;
+      const link = item.querySelector('h3 a');
+      const rank = item.querySelector('.rank').textContent.trim();
+      const name = link.textContent.trim();
+      const href = link.href;
+      const when = item.dataset.when || '';
+      const addr = item.dataset.addr || '';
+      const popup =
+        '<h4><span class="rank">' + rank + '</span> ' + name + '</h4>' +
+        (when ? '<p class="when">' + when + '</p>' : '') +
+        (addr ? '<p class="addr">' + addr + '</p>' : '') +
+        '<p><a href="' + href + '" target="_blank" rel="noopener">→ Detail on Open House Praha</a></p>' +
+        '<p><a href="https://mapy.cz/zakladni?x=' + lng + '&y=' + lat + '&z=17&source=coor&id=' + lng + ',' + lat + '" target="_blank" rel="noopener">→ Navigate (Mapy.cz)</a></p>';
+      const marker = L.marker([lat, lng]).bindPopup(popup);
+      markerLayer.addLayer(marker);
+      bounds.extend([lat, lng]);
+    }
+    if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
+  };
+
+  const openMap = () => {
+    if (typeof L === 'undefined') { setTimeout(openMap, 100); return; }
+    overlay.hidden = false;
+    if (!map) {
+      map = L.map('map').setView([50.087, 14.42], 12);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+      }).addTo(map);
+      markerLayer = L.layerGroup().addTo(map);
+    } else {
+      map.invalidateSize();
+    }
+    refreshMarkers();
+  };
+  document.getElementById('open-map').addEventListener('click', openMap);
+  document.getElementById('close-map').addEventListener('click', () => { overlay.hidden = true; });
+
+  // Refresh markers whenever filter changes (only if map already exists)
+  form.addEventListener('change', () => { if (map && !overlay.hidden) refreshMarkers(); });
+})();
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+
+</body>
+</html>
